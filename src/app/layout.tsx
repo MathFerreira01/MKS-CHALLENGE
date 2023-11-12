@@ -1,4 +1,8 @@
+'use client'
+
+import { QueryClientProvider } from 'react-query'
 import StyledJsxRegistry from './registry'
+import { queryClient } from './queryClientProvider'
 
 export default function RootLayout({
   children,
@@ -8,7 +12,9 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <StyledJsxRegistry>{children}</StyledJsxRegistry>
+        <QueryClientProvider client={queryClient}>
+          <StyledJsxRegistry>{children}</StyledJsxRegistry>
+        </QueryClientProvider>
       </body>
     </html>
   )
