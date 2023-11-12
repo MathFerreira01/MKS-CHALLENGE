@@ -6,6 +6,7 @@ import Navbar from './navbar'
 import axios from 'axios'
 import ListProducts from './components/listProducts'
 import styled from 'styled-components'
+import Footer from './components/footer'
 
 interface products {
   id: number
@@ -16,11 +17,18 @@ interface products {
   price: number
 }
 
+export const Wrapper = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`
+
 export const Container = styled.div`
+  padding-top: 1em;
   display: grid;
   grid-template-columns: 225px 225px 225px 225px;
   gap: 1em;
-  align-items: center;
   justify-content: center;
 `
 
@@ -42,7 +50,7 @@ export default function Home() {
   console.log(products)
 
   return (
-    <>
+    <Wrapper>
       <Navbar />
 
       <Container>
@@ -59,7 +67,9 @@ export default function Home() {
         ))}
       </Container>
 
+      <Footer />
+
       <GlobalStyle />
-    </>
+    </Wrapper>
   )
 }

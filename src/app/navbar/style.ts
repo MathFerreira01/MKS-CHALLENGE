@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.nav`
   background-color: #0f52ba;
-  height: 101px;
+  min-height: 101px;
   width: 100%;
 
   display: flex;
