@@ -1,5 +1,6 @@
 import React from 'react'
 import products from '@/app/interface/IProduct'
+import { FiShoppingBag } from 'react-icons/fi'
 import {
   Container,
   ItemImage,
@@ -25,6 +26,7 @@ const Product = ({ name, photo, description, price }: products) => {
       </Wrapper>
 
       <ItemButton>
+        <FiShoppingBag size={15} />
         <ItemLinkButton>COMPRAR</ItemLinkButton>
       </ItemButton>
     </Container>
