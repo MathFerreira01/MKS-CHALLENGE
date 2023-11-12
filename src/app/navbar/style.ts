@@ -23,7 +23,7 @@ export const Container = styled.nav`
     font-weight: 00;
   }
 
-  span {
+  p {
     font-size: 20px;
     font-weight: 200;
     line-height: 19px;

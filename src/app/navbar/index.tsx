@@ -1,14 +1,16 @@
 import React from 'react'
 import { Container } from './style'
+import ButtonCart from '../components/buttonCart'
 
 const Navbar = () => {
   return (
     <Container>
       <div>
         <h2>MKS</h2>
-        <span>Sistemas</span>
+        <p>Sistemas</p>
       </div>
-      <span>carrinho</span>
+
+      <ButtonCart />
     </Container>
   )
 }
