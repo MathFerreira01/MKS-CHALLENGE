@@ -1,15 +1,7 @@
 import React from 'react'
 import { Container } from './style'
 import Product from '../product'
-
-interface products {
-  id: number
-  name: string
-  photo: string
-  brand: string
-  description: string
-  price: number
-}
+import products from '@/app/interface/IProduct'
 
 const ListProducts = ({
   id,

@@ -7,15 +7,7 @@ import axios from 'axios'
 import ListProducts from './components/listProducts'
 import styled from 'styled-components'
 import Footer from './components/footer'
-
-interface products {
-  id: number
-  name: string
-  photo: string
-  brand: string
-  description: string
-  price: number
-}
+import products from './interface/IProduct'
 
 export const Wrapper = styled.div`
   height: 100vh;

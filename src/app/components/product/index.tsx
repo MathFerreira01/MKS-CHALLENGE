@@ -1,4 +1,5 @@
 import React from 'react'
+import products from '@/app/interface/IProduct'
 import {
   Container,
   ItemImage,
@@ -11,16 +12,7 @@ import {
   ItemLinkButton,
 } from './style'
 
-interface product {
-  id: number
-  name: string
-  brand: string
-  description: string
-  price: number
-  photo: string
-}
-
-const Product = ({ name, photo, description, price }: product) => {
+const Product = ({ name, photo, description, price }: products) => {
   return (
     <Container>
       <ItemImage src={photo} />
