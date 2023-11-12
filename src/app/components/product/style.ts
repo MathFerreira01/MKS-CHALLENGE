@@ -3,16 +3,18 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
 
   max-width: 225px;
+  height: 285px;
   border-radius: 8px;
   background: #ffff;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.135216);
 `
 
 export const ItemImage = styled.img`
-  width: 100%;
+  width: 60%;
   border-radius: 8px 8px 0 0;
 `
 
@@ -23,17 +25,23 @@ export const Wrapper = styled.div`
 export const ContainerText = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `
 
 export const ItemName = styled.span`
-  font-weight: 400;
   font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+
   color: #2c2c2c;
 `
 
 export const ItemPrice = styled.p`
-  padding: 0.6em;
+  padding: 0.4em;
   background: #373737;
+
+  text-align: center;
+  width: 100px;
   color: #ffff;
   border-radius: 5px;
   font-weight: 700;
@@ -50,6 +58,7 @@ export const ItemDescription = styled.p`
 export const ItemButton = styled.button`
   border: none;
   background: #0f52ba;
+  width: 100%;
   border-radius: 0 0 8px 8px;
   cursor: pointer;
 

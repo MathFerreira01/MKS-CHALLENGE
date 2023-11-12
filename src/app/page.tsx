@@ -2,9 +2,10 @@
 
 import { useQuery } from 'react-query'
 import { GlobalStyle } from '../app/styles/globalStyles'
-import CardItem from './components/cardItem'
 import Navbar from './navbar'
 import axios from 'axios'
+import ListProducts from './components/listProducts'
+import styled from 'styled-components'
 
 interface products {
   id: number
@@ -14,6 +15,14 @@ interface products {
   description: string
   price: number
 }
+
+export const Container = styled.div`
+  display: grid;
+  grid-template-columns: 225px 225px 225px 225px;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+`
 
 export default function Home() {
   const { data: products, isLoading } = useQuery<products[]>({
@@ -36,9 +45,10 @@ export default function Home() {
     <>
       <Navbar />
 
-      {products.map((product) => (
-        <div key={product.id}>
-          <CardItem
+      <Container>
+        {products.map((product) => (
+          <ListProducts
+            key={product.id}
             name={product.name}
             id={product.id}
             photo={product.photo}
@@ -46,8 +56,8 @@ export default function Home() {
             description={product.description}
             price={product.price}
           />
-        </div>
-      ))}
+        ))}
+      </Container>
 
       <GlobalStyle />
     </>

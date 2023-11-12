@@ -20,14 +20,14 @@ interface product {
   photo: string
 }
 
-const CardItem = ({ name, photo, description, price }: product) => {
+const Product = ({ name, photo, description, price }: product) => {
   return (
     <Container>
       <ItemImage src={photo} />
       <Wrapper>
         <ContainerText>
           <ItemName>{name}</ItemName>
-          <ItemPrice>R$ {price}</ItemPrice>
+          <ItemPrice>R${price}</ItemPrice>
         </ContainerText>
         <ItemDescription>{description}</ItemDescription>
       </Wrapper>
@@ -39,4 +39,4 @@ const CardItem = ({ name, photo, description, price }: product) => {
   )
 }
 
-export default CardItem
+export default Product
