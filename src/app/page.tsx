@@ -1,11 +1,13 @@
 'use client'
 
-import { GlobalStyle } from './globalStyles'
+import { GlobalStyle } from '../app/styles/globalStyles'
+import Navbar from './navbar/navbar'
 
 export default function Home() {
   return (
     <>
-      <h1>Hello world</h1>
+      <Navbar />
+
       <GlobalStyle />
     </>
   )
