@@ -11,13 +11,13 @@ import products from './interface/IProduct'
 
 export const Wrapper = styled.div`
   height: 100vh;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `
 
 export const Container = styled.div`
-  padding-top: 1em;
   display: grid;
   grid-template-columns: 225px 225px 225px 225px;
   gap: 1em;
@@ -39,29 +39,26 @@ export default function Home() {
 
   if (isLoading || !products) return <div>loading...</div>
 
-  console.log(products)
-
   return (
-    <Wrapper>
-      <Navbar />
-
-      <Container>
-        {products.map((product) => (
-          <ListProducts
-            key={product.id}
-            name={product.name}
-            id={product.id}
-            photo={product.photo}
-            brand={product.brand}
-            description={product.description}
-            price={product.price}
-          />
-        ))}
-      </Container>
-
-      <Footer />
-
+    <>
+      <Wrapper>
+        <Navbar />
+        <Container>
+          {products.map((product) => (
+            <ListProducts
+              key={product.id}
+              name={product.name}
+              id={product.id}
+              photo={product.photo}
+              brand={product.brand}
+              description={product.description}
+              price={product.price}
+            />
+          ))}
+        </Container>
+        <Footer />
+      </Wrapper>
       <GlobalStyle />
-    </Wrapper>
+    </>
   )
 }

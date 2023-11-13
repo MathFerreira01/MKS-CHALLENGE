@@ -1,17 +1,31 @@
-import React from 'react'
-import { Container } from './style'
-import ButtonCart from '../components/buttonCart'
+import React, { useState } from 'react'
+import { Container, ContainerCart } from './style'
+import { AiOutlineShoppingCart } from 'react-icons/ai'
+import Cart from '../components/cart'
 
 const Navbar = () => {
-  return (
-    <Container>
-      <div>
-        <h2>MKS</h2>
-        <p>Sistemas</p>
-      </div>
+  const [modal, setModal] = useState<boolean>(false)
 
-      <ButtonCart />
-    </Container>
+  const togleModal = () => {
+    setModal(!modal)
+  }
+
+  return (
+    <>
+      <Container>
+        <div>
+          <h2>MKS</h2>
+          <p>Sistemas</p>
+        </div>
+
+        <ContainerCart onClick={togleModal}>
+          <AiOutlineShoppingCart size={20} />
+          <span>0</span>
+        </ContainerCart>
+      </Container>
+
+      {modal ? <Cart modal={modal} togleModal={togleModal} /> : null}
+    </>
   )
 }
 
