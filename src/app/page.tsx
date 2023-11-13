@@ -3,26 +3,11 @@
 import { useQuery } from 'react-query'
 import Navbar from './navbar'
 import ListProducts from './components/listProducts'
-import styled from 'styled-components'
 import Footer from './components/footer'
 import IProducts from './interface/IProduct'
 import { getAllProductsService } from './services/getAllProducts'
 import LoadingProduct from './components/product/loading'
-
-export const Wrapper = styled.div`
-  height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`
-
-export const Container = styled.div`
-  display: grid;
-  grid-template-columns: 225px 225px 225px 225px;
-  gap: 1em;
-  justify-content: center;
-`
+import { Wrapper, Container } from '../app/styles/page.style'
 
 export default function Home() {
   const loadingProducts = [1, 2, 3, 4, 5, 6, 7, 8]
