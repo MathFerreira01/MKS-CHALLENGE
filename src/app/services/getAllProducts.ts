@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import { api } from './api'
 import error from 'next/error'
+import delay from 'delay'
 
 export const getAllProductsService = async () => {
   return await api

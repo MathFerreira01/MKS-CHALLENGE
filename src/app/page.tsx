@@ -1,14 +1,13 @@
 'use client'
 
 import { useQuery } from 'react-query'
-import { GlobalStyle } from '../app/styles/globalStyles'
 import Navbar from './navbar'
-import axios from 'axios'
 import ListProducts from './components/listProducts'
 import styled from 'styled-components'
 import Footer from './components/footer'
 import IProducts from './interface/IProduct'
 import { getAllProductsService } from './services/getAllProducts'
+import LoadingProduct from './components/product/loading'
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -26,6 +25,8 @@ export const Container = styled.div`
 `
 
 export default function Home() {
+  const loadingProducts = [1, 2, 3, 4, 5, 6, 7, 8]
+
   const { data: products, isLoading } = useQuery<IProducts[]>({
     queryKey: ['products'],
     queryFn: getAllProductsService,
@@ -33,29 +34,32 @@ export default function Home() {
     retry: 3,
   })
 
-  if (isLoading || !products) return <div>loading...</div>
+  if (isLoading || !products) return <div>Loading...</div>
 
   return (
     <>
       <Wrapper>
         <Navbar />
         <Container>
-          {products.map((product) => (
-            <ListProducts
-              key={product.id}
-              name={product.name}
-              id={product.id}
-              photo={product.photo}
-              brand={product.brand}
-              description={product.description}
-              price={product.price}
-              quantity={product.quantity}
-            />
-          ))}
+          {isLoading
+            ? loadingProducts.map((load, index) => (
+                <LoadingProduct key={index} />
+              ))
+            : products.map((product) => (
+                <ListProducts
+                  key={product.id}
+                  name={product.name}
+                  id={product.id}
+                  photo={product.photo}
+                  brand={product.brand}
+                  description={product.description}
+                  price={product.price}
+                  quantity={product.quantity}
+                />
+              ))}
         </Container>
         <Footer />
       </Wrapper>
-      <GlobalStyle />
     </>
   )
 }
