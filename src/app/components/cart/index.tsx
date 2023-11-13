@@ -13,13 +13,9 @@ import { AiOutlineClose } from 'react-icons/ai'
 import CartItem from '../cartItem'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/app/store'
+import IModal from '@/app/interface/IModal'
 
-interface Props {
-  modal: boolean
-  togleModal: () => void
-}
-
-const Cart = ({ modal, togleModal }: Props) => {
+const Cart = ({ modal, togleModal }: IModal) => {
   const carts = useSelector((state: RootState) => state.cart.products)
 
   const getTotal = () => {
