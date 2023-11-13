@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 
 export const CartConteiner = styled.div`
-  width: 486px;
+  width: 480px;
   height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: #0f52ba;
+  box-shadow: -5px 0px 6px rgba(0, 0, 0, 0.13);
 
   position: fixed;
   right: 0;
