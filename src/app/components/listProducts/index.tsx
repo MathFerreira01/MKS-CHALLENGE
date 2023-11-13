@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container } from './style'
 import Product from '../product'
-import products from '@/app/interface/IProduct'
+import IProducts from '@/app/interface/IProduct'
 
 const ListProducts = ({
   id,
@@ -10,7 +10,8 @@ const ListProducts = ({
   photo,
   description,
   price,
-}: products) => {
+  quantity,
+}: IProducts) => {
   return (
     <Container>
       <Product
@@ -20,6 +21,7 @@ const ListProducts = ({
         price={price}
         id={id}
         brand={brand}
+        quantity={quantity}
       />
     </Container>
   )

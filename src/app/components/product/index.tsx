@@ -1,6 +1,8 @@
 import React from 'react'
-import products from '@/app/interface/IProduct'
+import IProducts from '@/app/interface/IProduct'
+import { useDispatch } from 'react-redux'
 import { FiShoppingBag } from 'react-icons/fi'
+import { addToCart } from '@/app/store/cartSlice'
 import {
   Container,
   ItemImage,
@@ -13,7 +15,9 @@ import {
   ItemLinkButton,
 } from './style'
 
-const Product = ({ name, photo, description, price }: products) => {
+const Product = ({ id, name, photo, description, price }: IProducts) => {
+  const dispatch = useDispatch()
+
   return (
     <Container>
       <ItemImage src={photo} />
@@ -25,7 +29,9 @@ const Product = ({ name, photo, description, price }: products) => {
         <ItemDescription>{description}</ItemDescription>
       </Wrapper>
 
-      <ItemButton>
+      <ItemButton
+        onClick={() => dispatch(addToCart({ id, photo, name, price }))}
+      >
         <FiShoppingBag size={15} />
         <ItemLinkButton>COMPRAR</ItemLinkButton>
       </ItemButton>

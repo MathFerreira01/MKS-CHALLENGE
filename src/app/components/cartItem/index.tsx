@@ -1,4 +1,15 @@
-import React from 'react'
+'use client'
+
+import { RootState } from '@/app/store'
+import IProducts from '@/app/interface/IProduct'
+import { useDispatch, useSelector } from 'react-redux'
+
+import {
+  decrementQuantity,
+  incrementQuantity,
+  removeItem,
+} from '@/app/store/cartSlice'
+
 import {
   Container,
   CardCarrinhoImage,
@@ -9,28 +20,33 @@ import {
   CardCarrinhoDelete,
 } from './style'
 
-const CartItem = () => {
+const CartItem = ({ id, name, photo, price, quantity }: IProducts) => {
+  const dispatch = useDispatch()
+  const cart = useSelector((state: RootState) => state.cart.products)
+
   return (
     <Container>
-      <CardCarrinhoImage src="" alt="" />
-      <CardCarrinhoTexto>name</CardCarrinhoTexto>
+      <CardCarrinhoImage src={photo} />
+      <CardCarrinhoTexto>{name}</CardCarrinhoTexto>
       <CardCarrinhoQtd>
         <span>Qtd:</span>
         <WrapperQtd>
           <button
-          // disabled={cart[0].quantity === 1}
-          // onClick={() => dispatch(decrementQuantity(id))}
+            disabled={cart[0].quantity === 1}
+            onClick={() => dispatch(decrementQuantity(id))}
           >
             -
           </button>
           <hr />
-          <span>0</span>
+          <span>{quantity}</span>
           <hr />
-          <button>+</button>
+          <button onClick={() => dispatch(incrementQuantity(id))}>+</button>
         </WrapperQtd>
       </CardCarrinhoQtd>
-      <CardCarrinhoPrice>100</CardCarrinhoPrice>
-      <CardCarrinhoDelete>X</CardCarrinhoDelete>
+      <CardCarrinhoPrice>{price}</CardCarrinhoPrice>
+      <CardCarrinhoDelete onClick={() => dispatch(removeItem(id))}>
+        X
+      </CardCarrinhoDelete>
     </Container>
   )
 }

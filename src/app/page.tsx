@@ -7,7 +7,7 @@ import axios from 'axios'
 import ListProducts from './components/listProducts'
 import styled from 'styled-components'
 import Footer from './components/footer'
-import products from './interface/IProduct'
+import IProducts from './interface/IProduct'
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -25,7 +25,7 @@ export const Container = styled.div`
 `
 
 export default function Home() {
-  const { data: products, isLoading } = useQuery<products[]>({
+  const { data: products, isLoading } = useQuery<IProducts[]>({
     queryKey: ['products'],
     queryFn: () =>
       axios
@@ -53,6 +53,7 @@ export default function Home() {
               brand={product.brand}
               description={product.description}
               price={product.price}
+              quantity={product.quantity}
             />
           ))}
         </Container>

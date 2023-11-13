@@ -1,10 +1,11 @@
-interface products {
+interface IProducts {
   id: number
   name: string
-  photo: string
   brand: string
   description: string
+  photo: string
   price: number
+  quantity: number
 }
 
-export default products
+export default IProducts

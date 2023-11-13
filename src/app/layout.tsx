@@ -3,6 +3,8 @@
 import { QueryClientProvider } from 'react-query'
 import StyledJsxRegistry from './registry'
 import { queryClient } from './queryClientProvider'
+import { Provider } from 'react-redux'
+import store from './store'
 
 export default function RootLayout({
   children,
@@ -13,7 +15,9 @@ export default function RootLayout({
     <html>
       <body>
         <QueryClientProvider client={queryClient}>
-          <StyledJsxRegistry>{children}</StyledJsxRegistry>
+          <StyledJsxRegistry>
+            <Provider store={store}>{children} </Provider>
+          </StyledJsxRegistry>
         </QueryClientProvider>
       </body>
     </html>
