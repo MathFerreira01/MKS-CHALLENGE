@@ -1,6 +1,7 @@
 import React from 'react'
 import { CartConteiner, CartInfoTop } from './style'
 import { AiOutlineClose } from 'react-icons/ai'
+import CartItem from '../cartItem'
 
 interface Props {
   modal: boolean
@@ -20,6 +21,9 @@ const Cart = ({ modal, togleModal }: Props) => {
           <AiOutlineClose />
         </a>
       </CartInfoTop>
+      <div>
+        <CartItem />
+      </div>
     </CartConteiner>
   )
 }
