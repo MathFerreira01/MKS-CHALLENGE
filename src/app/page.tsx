@@ -30,21 +30,15 @@ export default function Home() {
   const { data: products, isLoading } = useQuery<IProducts[]>({
     queryKey: ['products'],
     queryFn: getAllProductsService,
-    staleTime: 60 * 1000, // 60s
-    retry: 3,
   })
-
-  if (isLoading || !products) return <div>Loading...</div>
 
   return (
     <>
       <Wrapper>
         <Navbar />
         <Container>
-          {isLoading
-            ? loadingProducts.map((load, index) => (
-                <LoadingProduct key={index} />
-              ))
+          {isLoading || !products
+            ? loadingProducts.map((index) => <LoadingProduct key={index} />)
             : products.map((product) => (
                 <ListProducts
                   key={product.id}
