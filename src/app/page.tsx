@@ -8,6 +8,7 @@ import ListProducts from './components/listProducts'
 import styled from 'styled-components'
 import Footer from './components/footer'
 import IProducts from './interface/IProduct'
+import { getAllProductsService } from './services/getAllProducts'
 
 export const Wrapper = styled.div`
   height: 100vh;
@@ -27,12 +28,7 @@ export const Container = styled.div`
 export default function Home() {
   const { data: products, isLoading } = useQuery<IProducts[]>({
     queryKey: ['products'],
-    queryFn: () =>
-      axios
-        .get(
-          'https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1/products?page=1&rows=8&sortBy=id&orderBy=DESC',
-        )
-        .then((res) => res.data.products),
+    queryFn: getAllProductsService,
     staleTime: 60 * 1000, // 60s
     retry: 3,
   })
