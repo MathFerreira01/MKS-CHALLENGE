@@ -9,7 +9,7 @@ import { getAllProductsService } from './services/getAllProducts'
 import LoadingProduct from './components/product/loading'
 import { Wrapper, Container } from '../app/styles/page.style'
 
-export default function Home() {
+const Home = () => {
   const loadingProducts = [1, 2, 3, 4, 5, 6, 7, 8]
 
   const { data: products, isLoading } = useQuery<IProducts[]>({
@@ -42,3 +42,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home
