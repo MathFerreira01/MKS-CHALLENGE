@@ -33,27 +33,25 @@ export default function Home() {
   })
 
   return (
-    <>
-      <Wrapper>
-        <Navbar />
-        <Container>
-          {isLoading || !products
-            ? loadingProducts.map((index) => <LoadingProduct key={index} />)
-            : products.map((product) => (
-                <ListProducts
-                  key={product.id}
-                  name={product.name}
-                  id={product.id}
-                  photo={product.photo}
-                  brand={product.brand}
-                  description={product.description}
-                  price={product.price}
-                  quantity={product.quantity}
-                />
-              ))}
-        </Container>
-        <Footer />
-      </Wrapper>
-    </>
+    <Wrapper>
+      <Navbar />
+      <Container>
+        {isLoading || !products
+          ? loadingProducts.map((index) => <LoadingProduct key={index} />)
+          : products.map((product) => (
+              <ListProducts
+                key={product.id}
+                name={product.name}
+                id={product.id}
+                photo={product.photo}
+                brand={product.brand}
+                description={product.description}
+                price={product.price}
+                quantity={product.quantity}
+              />
+            ))}
+      </Container>
+      <Footer />
+    </Wrapper>
   )
 }
