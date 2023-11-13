@@ -3,8 +3,10 @@ import styled from 'styled-components'
 export const CartConteiner = styled.div`
   width: 486px;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: #0f52ba;
-  padding: 2em;
 
   position: fixed;
   right: 0;
@@ -13,6 +15,7 @@ export const CartConteiner = styled.div`
 `
 export const CartInfoTop = styled.div`
   display: flex;
+  padding: 2em;
   justify-content: space-between;
   align-items: center;
 
@@ -30,4 +33,38 @@ export const CartInfoTop = styled.div`
     background-color: #000;
     cursor: pointer;
   }
+`
+export const ProductContainer = styled.div`
+  padding: 2em;
+  overflow: auto;
+`
+
+export const CartInfoBottom = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+export const CartTotalPrice = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em;
+
+  p {
+    font-weight: 700;
+    font-size: 1.7rem;
+    color: #ffffff;
+  }
+`
+
+export const Link = styled.a`
+  width: 100%;
+  text-align: center;
+
+  padding: 6%;
+  background: #000000;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #ffffff;
+  cursor: pointer;
 `

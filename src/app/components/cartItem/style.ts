@@ -3,11 +3,12 @@ import styled from 'styled-components'
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 1em;
   margin: 1em auto 1em;
+  position: relative;
 
-  height: 11vh;
+  height: 95px;
   max-width: 100%;
 
   background: #ffffff;
@@ -15,23 +16,18 @@ export const Container = styled.div`
   border-radius: 8px;
 `
 
-export const CardCarrinhoImage = styled.img`
-  height: 9vh;
+export const Image = styled.img`
+  height: 8vh;
   padding: 0.2em;
 `
-
-export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-`
-
-export const CardCarrinhoTexto = styled.p`
+export const ProductName = styled.p`
+  width: 80px;
   color: #2c2c2c;
   font-weight: 400;
-  font-size: 1em;
+  font-size: 0.8em;
 `
 
-export const CardCarrinhoQtd = styled.div`
+export const ProductQuantity = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -43,9 +39,8 @@ export const CardCarrinhoQtd = styled.div`
   }
 `
 
-export const WrapperQtd = styled.div`
-  padding: 0.2em;
-  border-radius: 8px;
+export const Quantity = styled.div`
+  border-radius: 5px;
 
   display: flex;
   align-items: center;
@@ -54,11 +49,13 @@ export const WrapperQtd = styled.div`
   border: 0.3px solid #bfbfbf;
 
   > button {
-    margin: 0 0.5em 0;
-    font-size: 1.3em;
+    margin: 0 0.4em 0;
+    font-size: 1em;
     font-weight: 400;
     border: none;
     background: #ffff;
+
+    cursor: pointer;
   }
 
   > span {
@@ -72,14 +69,19 @@ export const WrapperQtd = styled.div`
   }
 `
 
-export const CardCarrinhoPrice = styled(CardCarrinhoTexto)`
+export const ProductPrice = styled.p`
   font-weight: 700;
 `
 
-export const CardCarrinhoDelete = styled.a`
+export const ProductDelete = styled.a`
+  top: -10px;
+  right: -10px;
+
   border-radius: 50%;
-  padding: 0.5em;
+  position: absolute;
+  padding: 0.4em;
   background-color: #000;
+
   cursor: pointer;
   color: #ffff;
   font-size: 15px;

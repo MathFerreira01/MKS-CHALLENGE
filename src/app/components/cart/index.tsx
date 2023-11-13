@@ -1,7 +1,14 @@
 'use client'
 
 import React from 'react'
-import { CartConteiner, CartInfoTop } from './style'
+import {
+  CartTotalPrice,
+  CartConteiner,
+  CartInfoTop,
+  Link,
+  CartInfoBottom,
+  ProductContainer,
+} from './style'
 import { AiOutlineClose } from 'react-icons/ai'
 import CartItem from '../cartItem'
 import { useSelector } from 'react-redux'
@@ -37,7 +44,8 @@ const Cart = ({ modal, togleModal }: Props) => {
           <AiOutlineClose />
         </a>
       </CartInfoTop>
-      <div>
+
+      <ProductContainer>
         {carts.map((cart, index) => (
           <CartItem
             key={index}
@@ -50,7 +58,15 @@ const Cart = ({ modal, togleModal }: Props) => {
             description={cart.description}
           />
         ))}
-      </div>
+      </ProductContainer>
+
+      <CartInfoBottom>
+        <CartTotalPrice>
+          <p>Total:</p>
+          <p>R${getTotal().totalPrice}</p>
+        </CartTotalPrice>
+        <Link>Finalizar compra</Link>
+      </CartInfoBottom>
     </CartConteiner>
   )
 }

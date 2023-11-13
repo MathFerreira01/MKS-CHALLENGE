@@ -3,6 +3,9 @@
 import { RootState } from '@/app/store'
 import IProducts from '@/app/interface/IProduct'
 import { useDispatch, useSelector } from 'react-redux'
+import { AiOutlineClose } from 'react-icons/ai'
+import { GrFormAdd } from 'react-icons/gr'
+import { IoIosRemove } from 'react-icons/io'
 
 import {
   decrementQuantity,
@@ -12,12 +15,12 @@ import {
 
 import {
   Container,
-  CardCarrinhoImage,
-  CardCarrinhoTexto,
-  CardCarrinhoQtd,
-  WrapperQtd,
-  CardCarrinhoPrice,
-  CardCarrinhoDelete,
+  Image,
+  ProductName,
+  ProductQuantity,
+  Quantity,
+  ProductPrice,
+  ProductDelete,
 } from './style'
 
 const CartItem = ({ id, name, photo, price, quantity }: IProducts) => {
@@ -26,27 +29,29 @@ const CartItem = ({ id, name, photo, price, quantity }: IProducts) => {
 
   return (
     <Container>
-      <CardCarrinhoImage src={photo} />
-      <CardCarrinhoTexto>{name}</CardCarrinhoTexto>
-      <CardCarrinhoQtd>
+      <Image src={photo} alt="" />
+      <ProductName>{name}</ProductName>
+      <ProductQuantity>
         <span>Qtd:</span>
-        <WrapperQtd>
+        <Quantity>
           <button
             disabled={cart[0].quantity === 1}
             onClick={() => dispatch(decrementQuantity(id))}
           >
-            -
+            <IoIosRemove size={13} />
           </button>
           <hr />
           <span>{quantity}</span>
           <hr />
-          <button onClick={() => dispatch(incrementQuantity(id))}>+</button>
-        </WrapperQtd>
-      </CardCarrinhoQtd>
-      <CardCarrinhoPrice>{price}</CardCarrinhoPrice>
-      <CardCarrinhoDelete onClick={() => dispatch(removeItem(id))}>
-        X
-      </CardCarrinhoDelete>
+          <button onClick={() => dispatch(incrementQuantity(id))}>
+            <GrFormAdd size={13} />
+          </button>
+        </Quantity>
+      </ProductQuantity>
+      <ProductPrice>R${price}</ProductPrice>
+      <ProductDelete onClick={() => dispatch(removeItem(id))}>
+        <AiOutlineClose size={12} />
+      </ProductDelete>
     </Container>
   )
 }
